@@ -1,23 +1,17 @@
-import logo from '../assets/logo.svg';
-import React from 'react'
+import React from "react";
+import { FormLayout } from "../layout/FormLayout";
+import { LogIn } from "./LogIn";
+import { SignUp } from "./SignUp";
+import { UsersList } from "./UsersList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormLayout>
+        <LogIn />
+        <SignUp />
+      </FormLayout>
+      <UsersList />
     </div>
   );
 }
