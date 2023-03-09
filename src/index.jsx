@@ -6,11 +6,15 @@ import {
 } from "react-router-dom";
 
 import './style/App.scss'
+import './style/LogIn.scss'
+import './style/SignUp.scss'
+import './style/UsersList.scss'
 
 import App from './components/App'
 import { LogIn } from './components/LogIn';
 import { SignUp } from './components/SignUp';
 import { UsersList } from './components/UsersList';
+import ErrorPage from './components/ErrorPage';
 
 
 const router = createBrowserRouter([
@@ -29,9 +33,12 @@ const router = createBrowserRouter([
   {
     path: "/users-list",
     element: <UsersList />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
+    errorElement: <ErrorPage />,
   }
-
-  // todo 404 - not exists
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
