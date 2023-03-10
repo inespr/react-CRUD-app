@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { FiCornerDownLeft, FiCheck, FiEdit } from "react-icons/fi";
 
-export function SignUp() {
+export function UserEdit({name, surname, email, password}) {
   return (
-    <div className="SignUp">
-      <h1>SignUp</h1>
+    <div className="UserEdit">
       <form>
+        <h1>UserEdit</h1>
+        <FiEdit/>
+        <Link to='../users-list'><FiCornerDownLeft/></Link>
         <input type={'text'} placeholder='Name...' className='input'/>
         <input type={'text'} placeholder='Surname...'className='input'/>
         <input type={'email'} placeholder='Email...' className='input'/>
         <input type={'password'} placeholder='Password...' className='input'/>
-        <Link to='../users-list'><button type={'submit'} className='button--continue'>CONTINUE</button></Link>
-        <section className='LogIn--link'>
-        <p>or <Link to='../log-in'>LogIn</Link></p>
-      </section>
+        <button type={'submit'} className='button--save'>SAVE <FiCheck/></button>
       </form>
     </div>
   );

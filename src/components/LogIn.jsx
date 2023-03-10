@@ -7,10 +7,10 @@ export function LogIn() {
       <h1>LogIn</h1>
       <form>
         <input type={'email'} placeholder='Email...' className='input'/>
-        <input type={'password'} placeholder='Password...'/>
-        <button type={'submit'} className='button--continue'>CONTINUE</button>
-        <section className='signUp'>
-          <p>or </p><Link to="sign-up">SingUp</Link>
+        <input type={'password'} placeholder='Password...' className='input'/>
+        <Link to='../users-list'><button type={'submit'} className='button--continue'>CONTINUE</button></Link>
+        <section className='signUp--link'>
+          <p>or </p><Link to="../sign-up">SingUp</Link>
         </section>
       </form>
     </div>

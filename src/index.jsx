@@ -15,6 +15,9 @@ import { LogIn } from './components/LogIn';
 import { SignUp } from './components/SignUp';
 import { UsersList } from './components/UsersList';
 import ErrorPage from './components/ErrorPage';
+import { UserInfo } from './components/UserInfo';
+import { UserEdit } from './components/UserEdit';
+import { LogOutWindow } from './components/LogOutWindow';
 
 
 const router = createBrowserRouter([
@@ -23,7 +26,12 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/login",
+    path: "*",
+    element: <ErrorPage />,
+    errorElement: <ErrorPage />,
+  }, 
+  {
+    path: "/log-in",
     element: <LogIn />,
   },
   {
@@ -35,10 +43,18 @@ const router = createBrowserRouter([
     element: <UsersList />,
   },
   {
-    path: "*",
-    element: <ErrorPage />,
-    errorElement: <ErrorPage />,
+    path: "/user-info",
+    element: <UserInfo />,
+  },
+  {
+    path: "/user-edit",
+    element: <UserEdit />,
+  },
+  {
+    path: "/log-out",
+    element: <LogOutWindow />,
   }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
