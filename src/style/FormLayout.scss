@@ -1,0 +1,21 @@
+html{
+  background-color: #5F71D3;
+}
+.Form{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form--layout{ 
+  height: 100%;
+  background-color: #5F71D3;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  background-color: #E9ECFE;
+  align-items: center;
+  border-radius: 7px;
+  width: 326px;
+}

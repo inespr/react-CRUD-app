@@ -9,6 +9,7 @@ import './style/App.scss'
 import './style/LogIn.scss'
 import './style/SignUp.scss'
 import './style/UsersList.scss'
+import './style/FormLayout.scss'
 
 import App from './components/App'
 import { LogIn } from './components/LogIn';
