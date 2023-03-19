@@ -1,90 +1,104 @@
-import React, { useEffect, useState } from "react";
-import { FiInfo } from "react-icons/fi";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FormLayout } from "../layout/FormLayout";
 import { Input } from "./Input";
 
 export function SignUp() {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const nameRef = useRef();
+  const surnameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
   const [error, setError] = useState("");
+  const [status, setStatus] = useState(" ");
 
-  function CallAPI(event) {
+  console.log("rendered once");
+
+  function callApi(event) {
     event.preventDefault();
-    function ErrorInputs() {
-      if (name && surname && email && password) {
-        fetch(`${import.meta.env.VITE_APP_MY_API_LINK}/auth/sign-up`, {
-          method: "POST",
+    setError(null);
+    console.log(nameRef);
+    console.log({
+      name: nameRef.current.value,
+      surname: surnameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
 
-          body: JSON.stringify({
-            name: name,
-            surname: surname,
-            email: email,
-            password: password,
-          }),
-
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
+    if (nameRef && surnameRef && emailRef && passwordRef) {
+      fetch(`${import.meta.env.VITE_APP_MY_API_LINK}/auth/sign-up`, {
+        method: "POST",
+        body: JSON.stringify({
+          name: nameRef.current.value,
+          surname: surnameRef.current.value,
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          if (response.statusCode === 409) {
+            console.log(response.statusCode);
+            throw 409;
+          } else if (response.statusCode === 500) {
+            console.log(response.statusCode);
+            throw 500;
+          } else if (response.statusCode === 204) {
+            console.log('successful');
+            throw 204;
+          }
+          setError('');
         })
-          .then((res) => res.json(console.log(res)))
-          .then((response) => {
-            if (response.statusCode === 409) {
-              console.log(response.statusCode);
-              throw new Error("Error");
-            }
-            return response;
-          })
-          .catch((error) => {
-            if ((error = 409)) {
-              console.log("sdfsd");
-              console.log(error);
-              setError("Email already exist");
-            }
-          });
-      } else {
-        setError("All are REQUIRED");
-      }
+        .catch((error) => {
+          if (error === 409) {
+            console.log("Email already exists");
+            setError("Email already exists");
+          } else if (error === 500) {
+            console.log("All fields are required");
+            setError("All fields are required");
+          } else if (error === 204) {
+            console.log("Empty response");
+          }
+        });
     }
-
-    ErrorInputs();
+    
   }
   useEffect(() => {
-    setError('');
-  }, [email, password, name, surname]);
-
+    setError("");
+  }, [status]);
   return (
     <div className="Form">
       <FormLayout>
-        <form onSubmit={CallAPI}>
+        <form onSubmit={callApi} >
           <h1>SignUp</h1>
-          <div className="inputs--button">
+          <div className="inputs--button" onClick={(e) => setStatus(e.target.value)}>
             <Input
               placeholder={"Name..."}
               type={"text"}
-              onChange={(event) => setName(event.target.value)}
+              reference={nameRef}
               className={"input"}
             />
             <Input
               placeholder={"Surname..."}
               type={"text"}
-              onChange={(event) => setSurname(event.target.value)}
+              reference={surnameRef}
               className={"input"}
             />
             {error !== "Email already exist" ? (
               <Input
                 placeholder={"Email..."}
                 type={"email"}
-                onChange={(event) => setEmail(event.target.value)}
+                reference={emailRef}
                 className={"input"}
               />
             ) : (
               <Input
                 placeholder={"Email..."}
                 type={"email"}
-                onChange={(event) => setEmail(event.target.value)}
+                reference={emailRef}
                 className={"input--error"}
               />
             )}
@@ -92,19 +106,20 @@ export function SignUp() {
             <Input
               placeholder={"Password..."}
               type={"password"}
-              onChange={(event) => setPassword(event.target.value)}
+              reference={passwordRef}
               className={"input"}
             />
 
-            {error !== "Email already exist" && error !== "All are REQUIRED" ? (
-              <button type={"submit"} className="button--continue">
-                <span className="button--name">CONTINUE</span>
-              </button>
+            {error !== 'Email already exists' && error !== "All fields are required" ? (
+              <div style={{ display: "none" }}></div>
             ) : (
-              <div type={"submit"} className="button--error">
+              <button type={"submit"} className="button--error">
                 <span className="button--error--name">{error}</span>
-              </div>
+              </button>
             )}
+            <button type={"submit"} className="button--continue">
+              <span className="button--name">CONTINUE</span>
+            </button>
           </div>
           <section className="link">
             <p>
