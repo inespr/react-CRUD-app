@@ -40,6 +40,7 @@ export function LogIn() {
         .then((data) => {
           setData(data);
           localStorage.setItem("Token", (data.accessToken));
+          localStorage.setItem('EmailAcces', (emailRef.current.value))
           console.log(data.accessToken);
         })
         .catch((error) => {
@@ -69,6 +70,7 @@ export function LogIn() {
               type="email"
               reference={emailRef}
               className="input"
+              pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$'
             />
             <Input
               placeholder="Password..."
