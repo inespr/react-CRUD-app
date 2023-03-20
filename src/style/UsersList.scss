@@ -1,0 +1,71 @@
+$primary-color: #5F71D3;
+$secondary-light-color: #E9ECFE;
+$secondary-dark-color: #374DC8;
+$secondary-yellow-color: #C8B237;
+$error-color: #C8374D;
+$primary-light-color: #a3abd8;
+
+html {
+  background-color: $primary-light-color;
+  width: 100%;
+  min-height: 100%;
+
+}
+body{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+}
+.userslist{
+  background-color: $secondary-light-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 20px 0;
+  gap: 17px;
+  .tittle{
+    margin: 0;
+  }
+
+}
+.usersList{
+  display: flex;
+  flex-direction: column;
+  width: 316px;
+  text-align: center;
+  padding: 10px;
+}
+.users--header{
+  display: flex;
+  background-color: $secondary-light-color;
+  padding: 20px 0 10px 0;
+  justify-content: center;
+}
+.user--header--wrapper{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userLogger--menu{
+ display: none;
+}
+
+.userLogger{
+  background-color: $secondary-dark-color;
+  border-radius: 40px;
+  padding: 9px;
+  span{
+    color: $secondary-yellow-color;
+    font-weight: 600;
+  }
+}
+
+.Users{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 30px;
+}

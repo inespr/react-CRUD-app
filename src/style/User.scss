@@ -1,0 +1,42 @@
+$primary-color: #5F71D3;
+$secondary-light-color: #E9ECFE;
+$secondary-dark-color: #374DC8;
+$secondary-yellow-color: #C8B237;
+$error-color: #C8374D;
+$primary-light-color: #a3abd8;
+
+.user--div{
+  background-color: #374DC8;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  border-radius: 3px;
+  color: #E9ECFE;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  text-overflow: ellipsis;
+
+}
+.user{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  gap: 7px;
+}
+
+.user--menu{
+  display: none;
+}
+
+.user--delete--confirmation{
+  display: none;
+}
+
+.userMail{
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  text-overflow: ellipsis;
+}

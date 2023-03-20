@@ -110,23 +110,21 @@ form{
 }
 .button--error{
   border-radius: 3px;
-    padding: 10px;
     text-align: center;
     display: flex;
     border: none;
     color:  $secondary-light-color;
-    background-color: $error-color;
     justify-content: center;
     text-decoration: none;
 }
   .button--error--name{
-    color: $secondary-light-color;
+    color: $error-color;
     font-weight: 600;
   }
   .inputs--button{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     width: 70%;
   }
   .link{
