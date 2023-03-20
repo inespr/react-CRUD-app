@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FormLayout } from "../layout/FormLayout";
 import { Input } from "./Input";
 
@@ -39,6 +39,7 @@ export function SignUp() {
         },
       })
         .then((res) => res.json())
+      
         .then((response) => {
           if (response.statusCode === 409) {
             console.log(response.statusCode);
@@ -46,11 +47,11 @@ export function SignUp() {
           } else if (response.statusCode === 500) {
             console.log(response.statusCode);
             throw 500;
-          } else if (response.statusCode === 204) {
-            console.log('successful');
-            throw 204;
-          }
+          } 
           setError('');
+        })
+        .then((data) => {
+          console.log(data);
         })
         .catch((error) => {
           if (error === 409) {
@@ -59,9 +60,7 @@ export function SignUp() {
           } else if (error === 500) {
             console.log("All fields are required");
             setError("All fields are required");
-          } else if (error === 204) {
-            console.log("Empty response");
-          }
+          } 
         });
     }
     
@@ -76,48 +75,49 @@ export function SignUp() {
           <h1>SignUp</h1>
           <div className="inputs--button" onClick={(e) => setStatus(e.target.value)}>
             <Input
-              placeholder={"Name..."}
-              type={"text"}
+              placeholder="Name..."
+              type="text"
               reference={nameRef}
-              className={"input"}
+              className="input"
             />
             <Input
-              placeholder={"Surname..."}
-              type={"text"}
+              placeholder="Surname..."
+              type="text"
               reference={surnameRef}
-              className={"input"}
+              className="input"
             />
             {error !== "Email already exist" ? (
               <Input
-                placeholder={"Email..."}
-                type={"email"}
+                placeholder="Email..."
+                type="email"
                 reference={emailRef}
-                className={"input"}
+                className="input"
+                pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$'
               />
             ) : (
               <Input
-                placeholder={"Email..."}
-                type={"email"}
+                placeholder="Email..."
+                type="email"
                 reference={emailRef}
-                className={"input--error"}
+                className="input--error"
               />
             )}
 
             <Input
-              placeholder={"Password..."}
-              type={"password"}
+              placeholder="Password..."
+              type="password"
               reference={passwordRef}
-              className={"input"}
+              className="input"
             />
 
             {error !== 'Email already exists' && error !== "All fields are required" ? (
               <div style={{ display: "none" }}></div>
             ) : (
-              <button type={"submit"} className="button--error">
+              <button type="submit" className="button--error">
                 <span className="button--error--name">{error}</span>
               </button>
             )}
-            <button type={"submit"} className="button--continue">
+            <button type="submit" className="button--continue">
               <span className="button--name">CONTINUE</span>
             </button>
           </div>
