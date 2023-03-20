@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/users-list",
+    path: "/users",
     element: <UsersList />,
   },
   {
