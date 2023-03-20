@@ -5,6 +5,7 @@ import { FiXCircle, FiCheck } from "react-icons/fi";
 export function LogOutWindow() {
   function removeUser() {
     localStorage.removeItem('Token')
+    localStorage.removeItem('EmailAcces')
   }
   return (
     <div className="LogOut">
