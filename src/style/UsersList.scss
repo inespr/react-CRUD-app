@@ -56,6 +56,10 @@ body{
   background-color: $secondary-dark-color;
   border-radius: 40px;
   padding: 9px;
+  height: 40px;
+  width: 40px;
+  box-shadow: inset rgba(50, 50, 93, 0.25) 2px 2px 5px -2px, $secondary-dark-color 0px 3px 2px -3px;  
+
   span{
     color: $secondary-yellow-color;
     font-weight: 600;
@@ -68,4 +72,7 @@ body{
   width: 100%;
   align-items: center;
   gap: 30px;
+}
+button{
+  border: none;
 }

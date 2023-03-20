@@ -5,9 +5,10 @@ import { User } from "./User";
 import "../style/UsersList.scss";
 
 export function UsersList() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const bearer = localStorage.getItem("Token");
-  console.log(bearer);
+  const emailAcces = localStorage.getItem("EmailAcces");
+  const [iconName, setIconName] = useState("");
 
   useEffect(() => {
     const options = {
@@ -23,15 +24,27 @@ export function UsersList() {
         setData(data.items);
         console.log(data);
         console.log(data.items);
+      })
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, [bearer]);
+
+  useEffect(() => {
+    // This useEffect runs whenever the 'data' state is updated
+    data &&
+      data.map((element) => {
+        if (element.email === emailAcces) {
+          setIconName(element.name.charAt(0) + element.surname.charAt(0));
+        }
+        return null;
       });
-  }, []);
+  }, [data, emailAcces]);
 
   return (
     <section className="usersList">
       <section className="users--header">
         <div className="user--header--wrapper">
           <button className="userLogger">
-            <span>GL</span>
+            <span>{iconName.toUpperCase()}</span>
           </button>
           <div className="">
             <Link to="../log-out" className="logOut">
@@ -43,13 +56,9 @@ export function UsersList() {
       <div className="userslist">
         <h1 className="tittle">Users List</h1>
         <section className="Users">
-          {data &&
-            data.map((element, index) => {
-              console.log(data.items);
-              console.log(element.email);
-
-              return <User key={index} userMail={element.email} />;
-            })}
+          {data.map((element, index) => {
+            return <User key={index} userMail={element.email} />;
+          })}
         </section>
       </div>
     </section>
