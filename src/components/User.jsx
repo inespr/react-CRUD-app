@@ -8,16 +8,20 @@ import {
   FiMoreHorizontal,
   FiCornerDownLeft,
 } from "react-icons/fi";
+import "../style/User.scss";
 
 export function User({ userMail }) {
+  function showMenu() {
+    
+  }
   return (
     <div className="user">
-      <div className="user--div">
-        <span className="userMail">inesprom28@hiberus.es</span>
+      <button className="user--div">
+        <span className="userMail">{userMail}</span>
         <FiMoreVertical className="moreVertical" />
-      </div>
+      </button>
       <div className="user--menu">
-        <span className="userMail">inesprom28@hiberus.es</span>
+        <span className="userMail">{userMail}</span>
         <FiMoreHorizontal className="moreHorizontal" />
         <section className="menu--icon">
           <FiUserX />
