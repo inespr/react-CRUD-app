@@ -8,7 +8,9 @@ export function UsersList() {
   const [data, setData] = useState([]);
   const bearer = localStorage.getItem("Token");
   const emailAcces = localStorage.getItem("EmailAcces");
+  
   const [iconName, setIconName] = useState("");
+  const [checkUser, setCheckUser] = useState();
 
   useEffect(() => {
     const options = {
@@ -26,10 +28,19 @@ export function UsersList() {
         console.log(data.items);
       })
       .catch((error) => console.error("Error fetching data: ", error));
-  }, [bearer]);
+  }, [bearer, checkUser]);
+
+  function handleDeleteUser(param) {
+    if (param === "delete") {
+      console.log("usuario borrado", checkUser);
+      setCheckUser(!checkUser);
+      console.log("usuario borrado", checkUser);
+    } else {
+      console.log("no borrado");
+    }
+  }
 
   useEffect(() => {
-    // This useEffect runs whenever the 'data' state is updated
     data &&
       data.map((element) => {
         if (element.email === emailAcces) {
@@ -57,7 +68,16 @@ export function UsersList() {
         <h1 className="tittle">Users List</h1>
         <section className="Users">
           {data.map((element, index) => {
-            return <User key={index} userMail={element.email} />;
+            return (
+              <User
+                key={index}
+                userMail={element.email}
+                userName={element.name}
+                userSurname={element.surname}
+                userId={element.id}
+                handleUserEvent={handleDeleteUser}
+              />
+            );
           })}
         </section>
       </div>
