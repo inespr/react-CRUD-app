@@ -4,6 +4,7 @@ $secondary-dark-color: #374DC8;
 $secondary-yellow-color: #C8B237;
 $error-color: #C8374D;
 $primary-light-color: #a3abd8;
+$primary-more-light-color: #bfc4df;
 
 html {
   background-color: $primary-light-color;
@@ -17,6 +18,12 @@ body{
   justify-content: center;
   height: 100vh;
 }
+
+h1{
+  color: $secondary-dark-color;
+  border: $secondary-dark-color;
+}
+
 .userslist{
   background-color: $secondary-light-color;
   display: flex;
@@ -24,7 +31,8 @@ body{
   align-items: center;
   padding: 20px 0 20px 0;
   gap: 17px;
-  .tittle{
+  overflow-x: hidden;
+    .tittle{
     margin: 0;
   }
 
@@ -35,6 +43,8 @@ body{
   width: 316px;
   text-align: center;
   padding: 10px;
+  height: 600px;
+  overflow: hidden;
 }
 .users--header{
   display: flex;
@@ -72,6 +82,10 @@ body{
   width: 100%;
   align-items: center;
   gap: 30px;
+  padding: 20px;
+  overflow: scroll;
+  background-color: $primary-more-light-color;
+  overflow-x: hidden;
 }
 button{
   border: none;
