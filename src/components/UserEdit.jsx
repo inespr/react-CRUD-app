@@ -48,7 +48,8 @@ export function UserEdit() {
             <h1>UserEdit</h1>
             <FiEdit />
           </div>
-
+          <div className="form--body">
+            
           <label>
             Name:
             <input
@@ -88,8 +89,10 @@ export function UserEdit() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </label>
+
+          </div>
           <button type={"submit"} className="button--save">
-            <span className="button--name">SAVE</span> <FiCheck />
+            <span className="button--name">SAVE <FiCheck /></span> 
           </button>
         </form>
       </FormLayout>

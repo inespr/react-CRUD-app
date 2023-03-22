@@ -27,32 +27,33 @@ export function UserInfo() {
     <div className="Form">
       <FormLayout>
         <form className="form">
-        <Link to="../users" className="return">
+          <Link to="../users" className="return">
             <FiCornerDownLeft />
           </Link>
           <div className="header">
-          <h1>UserInfo</h1>
-          <FiInfo />
+            <h1>UserInfo</h1>
+            <FiInfo />
           </div>
-
-          <label>
-            Name:
-            <div type={"text"} className="input">
-              {dataUser.userName}
-            </div>
-          </label>
-          <label>
-            Surname:
-            <div type={"text"} className="input">
-              {dataUser.userSurname}
-            </div>
-          </label>
-          <label>
-            Email:
-            <div type={"email"} className="input">
-              {dataUser.userMail}
-            </div>
-          </label>
+          <div className="form--body">
+            <label>
+              Name:
+              <div type={"text"} className="input">
+                {dataUser.userName}
+              </div>
+            </label>
+            <label>
+              Surname:
+              <div type={"text"} className="input">
+                {dataUser.userSurname}
+              </div>
+            </label>
+            <label>
+              Email:
+              <div type={"email"} className="input">
+                {dataUser.userMail}
+              </div>
+            </label>
+          </div>
         </form>
       </FormLayout>
     </div>
