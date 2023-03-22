@@ -8,7 +8,8 @@ export function UsersList() {
   const [data, setData] = useState([]);
   const bearer = localStorage.getItem("Token");
   const emailAcces = localStorage.getItem("EmailAcces");
-  
+
+  const [activeMenu, setActiveMenu] = useState(false);
   const [iconName, setIconName] = useState("");
   const [checkUser, setCheckUser] = useState();
 
@@ -50,18 +51,26 @@ export function UsersList() {
       });
   }, [data, emailAcces]);
 
+  function showMenu() {
+    setActiveMenu(!activeMenu);
+  }
+
   return (
     <section className="usersList">
       <section className="users--header">
         <div className="user--header--wrapper">
-          <button className="userLogger">
+          <button className="userLogger" onClick={showMenu}>
             <span>{iconName.toUpperCase()}</span>
           </button>
-          <div className="">
-            <Link to="../log-out" className="logOut">
-              <FiLogOut />
-            </Link>
-          </div>
+          {activeMenu && (
+            <div className="user--data">
+               {emailAcces}
+              <Link to="../log-out" className="logOut">
+                <span>Log out </span>
+                <FiLogOut />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
       <div className="userslist">
