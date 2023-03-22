@@ -94,6 +94,9 @@ $primary-light-color: #a3abd8;
   color: $error-color;
   align-items: center;
   border-radius: 1px;
+  padding: 15px 7px 15px 7px;
+
+  flex: 1;
 
   .message--sure{
     font-size: 10px;
@@ -103,15 +106,13 @@ $primary-light-color: #a3abd8;
 .return--button{
   font-size: 15px;
   background-color: white;
-  max-height: 100%;
+  flex-direction: column;
   padding: 15px 7px 15px 7px;
   font-weight: 600;
   color: $secondary-dark-color;
   align-items: center;
   display: flex;
-  flex: 1;
   border-radius: 1px;
-  
 }
 
 .user--delete--confirmation{
