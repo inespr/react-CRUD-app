@@ -8,7 +8,6 @@ import {
   FiCornerDownLeft,
 } from "react-icons/fi";
 import "../style/User.scss";
-import { UserInfo } from "./UserInfo";
 
 export function User({
   userMail,
