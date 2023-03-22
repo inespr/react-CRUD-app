@@ -91,9 +91,14 @@ export function UserEdit() {
           </label>
 
           </div>
+          
           <button type={"submit"} className="button--save">
+            <Link to={'../users'} >
             <span className="button--name">SAVE <FiCheck /></span> 
+            </Link>
+
           </button>
+          
         </form>
       </FormLayout>
     </div>
