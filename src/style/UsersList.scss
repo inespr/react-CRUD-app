@@ -3,8 +3,11 @@ $secondary-light-color: #E9ECFE;
 $secondary-dark-color: #374DC8;
 $secondary-yellow-color: #C8B237;
 $error-color: #C8374D;
+$save-color : #37C86A;
+$save-light-color : #9fe9b9;
+
 $primary-light-color: #a3abd8;
-$primary-more-light-color: #bfc4df;
+$primary-more-light-color: #d9dcf3;
 
 html {
   background-color: $primary-light-color;
@@ -22,6 +25,13 @@ body{
 h1{
   color: $secondary-dark-color;
   border: $secondary-dark-color;
+}
+
+label{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .userslist{
@@ -75,17 +85,101 @@ h1{
     font-weight: 600;
   }
 }
+.form{
+  padding: 20px;
+  gap: 20px;
+}
+.button--save{
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  border: none;
+  color:  $secondary-light-color;
+  background-color: $save-color;
+  justify-content: center;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(0.2, 0, 0, 0.8);
 
+  
+}
+
+.return{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  svg{
+    width: 20px;
+    height: 20px;
+    color: $secondary-dark-color;
+  }
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  svg{
+    width: 20px;
+    height: 20px;
+    color: $secondary-dark-color;
+  }
+}
+
+.button--save:hover{
+  background-color: $secondary-light-color;
+  color: $save-color;
+  outline: 2px solid $save-light-color;
+  font-weight: bolder;
+  transition: all 400ms cubic-bezier(0.2, 0, 0, 0.8);
+}
+
+.button--name{
+  transition: all 500ms cubic-bezier(0.2, 0, 0, 0.8);
+  font-weight: bolder;
+}
+.button--name:hover{
+  color: $error-color;
+  
+  font-weight: bolder;
+  transition: all 500ms cubic-bezier(0.2, 0, 0, 0.8);
+
+}
 .Users{
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
   gap: 30px;
-  padding: 20px;
   overflow: scroll;
   background-color: $primary-more-light-color;
   overflow-x: hidden;
+  padding: 20px 0 20px 0;
+  box-shadow: inset rgba(50, 50, 93, 0.25) 2px 2px 5px -2px, $secondary-dark-color 0px 3px 2px -3px;  
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $primary-more-light-color; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $secondary-yellow-color; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary-dark-color; 
 }
 button{
   border: none;
