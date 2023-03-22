@@ -67,17 +67,14 @@ export function User({
           <div className="user--delete--confirmation">
             <section className="delete">
               <button className="delete--button" onClick={deleteUser}>
-                <span className="message--sure">Are you sure?</span>
                 <span className="message--delete">DELETE USER</span>
                 <FiUserX className="icon--delete" />
               </button>
             </section>
-            <section className="return">
               <button className="return--button">
                 <span onClick={showDeteleMenu}>RETURN</span>
                 <FiCornerDownLeft className="return--icon" />
               </button>
-            </section>
           </div>
         ) : (
           <div className="user--menu" id="user--menu">
