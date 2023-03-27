@@ -87,12 +87,15 @@ export function SignUp() {
               type="text"
               reference={nameRef}
               className="input"
+              pattern="[A-Za-z]"
+              minlenght = '2'
             />
             <Input
               placeholder="Surname..."
               type="text"
               reference={surnameRef}
               className="input"
+              pattern='^[a-zA-Z]+$'
             />
             {error !== "Email already exist" ? (
               <Input
@@ -118,6 +121,7 @@ export function SignUp() {
               type="password"
               reference={passwordRef}
               className="input"
+              minlenght='5'
             />
 
             {error !== 'Email already exists' && error !== "All fields are required" && error !== 'Email invalid'? (
