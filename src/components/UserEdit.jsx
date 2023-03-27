@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiCornerDownLeft, FiCheck, FiEdit } from "react-icons/fi";
 import { FormLayout } from "../layout/FormLayout";
@@ -17,7 +17,8 @@ export function UserEdit() {
     setEmail(dataUser.userMail);
   }, []);
 
-  function callApi() {
+  function callApi(event) {
+    event.preventDefault()
     const options = {
       method: "PUT",
       headers: {
@@ -35,72 +36,71 @@ export function UserEdit() {
       `${import.meta.env.VITE_APP_MY_API_LINK}/users/${dataUser.userId}`,
       options
     ).catch((error) => console.error("Error fetching data: ", error));
+    //rediriguir usuario a user list
   }
 
   return (
-    <div className="Form">
-      <FormLayout>
-        <form onSubmit={callApi} className="form">
-          <Link to="../users" className="return">
-            <FiCornerDownLeft />
-          </Link>
-          <div className="header">
-            <h1>UserEdit</h1>
-            <FiEdit />
-          </div>
-          <div className="form--body">
-            
-          <label>
-            Name:
-            <input
-              type={"text"}
-              placeholder="Name..."
-              className="input"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
-          </label>
-          <label>
-            Surname:
-            <input
-              type={"text"}
-              placeholder="Surname..."
-              className="input"
-              value={surname}
-              onChange={(event) => setSurname(event.target.value)}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type={"email"}
-              placeholder="Email..."
-              className="input"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type={"password"}
-              placeholder="Insert a new password"
-              className="input"
-              onChange={(event) => setPassword(event.target.value)}
-            />
-          </label>
-
-          </div>
-          
-          <button type={"submit"} className="button--save">
-            <Link to={'../users'} >
-            <span className="button--name">SAVE <FiCheck /></span> 
+    <>
+      <div className="Form">
+        <FormLayout>
+          <form onSubmit={callApi} className="form">
+            <Link to="../users" className="return">
+              <FiCornerDownLeft />
             </Link>
+            <div className="header">
+              <h1>UserEdit</h1>
+              <FiEdit />
+            </div>
+            <div className="form--body">
+              <label>
+                Name:
+                <input
+                  type={"text"}
+                  placeholder="Name..."
+                  className="input"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                />
+              </label>
+              <label>
+                Surname:
+                <input
+                  type={"text"}
+                  placeholder="Surname..."
+                  className="input"
+                  value={surname}
+                  onChange={(event) => setSurname(event.target.value)}
+                />
+              </label>
+              <label>
+                Email:
+                <input
+                  type={"email"}
+                  placeholder="Email..."
+                  className="input"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </label>
+              <label>
+                Password:
+                <input
+                  type={"password"}
+                  placeholder="Insert a new password"
+                  className="input"
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </label>
+            </div>
 
-          </button>
-          
-        </form>
-      </FormLayout>
-    </div>
+            <button type="submit" className="button--save">
+                <span className="button--name">
+                  SAVE <FiCheck />
+                </span>
+            </button>
+          </form>
+        </FormLayout>
+      </div>
+    </>
   );
 }
