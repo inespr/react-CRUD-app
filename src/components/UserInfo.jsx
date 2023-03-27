@@ -34,25 +34,27 @@ export function UserInfo() {
             <h1>UserInfo</h1>
             <FiInfo />
           </div>
-          <div className="form--body">
+          <div className="form--body--info">
             <label>
               Name:
-              <div type={"text"} className="input">
+              <div type="text" >
                 {dataUser.userName}
               </div>
             </label>
+           
             <label>
               Surname:
-              <div type={"text"} className="input">
+              <div type="text">
                 {dataUser.userSurname}
               </div>
             </label>
             <label>
               Email:
-              <div type={"email"} className="input">
+              <div type="email">
                 {dataUser.userMail}
               </div>
             </label>
+           
           </div>
         </form>
       </FormLayout>
