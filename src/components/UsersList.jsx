@@ -3,6 +3,7 @@ import { FiLogOut, FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { User } from "./User";
 import "../style/UsersList.scss";
+import { useNavigate } from "react-router-dom";
 
 export function UsersList() {
   const [data, setData] = useState([]);
@@ -13,22 +14,28 @@ export function UsersList() {
   const [iconName, setIconName] = useState("");
   const [checkUser, setCheckUser] = useState();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${bearer}`,
-      },
-    };
-    fetch(`${import.meta.env.VITE_APP_MY_API_LINK}/users`, options)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.items);
-        console.log(data);
-        console.log(data.items);
-      })
-      .catch((error) => console.error("Error fetching data: ", error));
+    if (bearer) {
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${bearer}`,
+        },
+      };
+      fetch(`${import.meta.env.VITE_APP_MY_API_LINK}/users`, options)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data.items);
+          console.log(data);
+          console.log(data.items);
+        })
+        .catch((error) => console.error("Error fetching data: ", error));
+    } else {
+      navigate("../log-in");
+    }
   }, [bearer, checkUser]);
 
   function handleDeleteUser(param) {
@@ -64,7 +71,7 @@ export function UsersList() {
           </button>
           {activeMenu && (
             <div className="user--data">
-               {emailAcces}
+              <span className="user--data--mail">{emailAcces}</span>
               <Link to="../log-out" className="logOut">
                 <span>Log out </span>
                 <FiLogOut />
