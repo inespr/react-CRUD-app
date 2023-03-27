@@ -1,0 +1,223 @@
+$primary-color: #5F71D3;
+$secondary-light-color: #E9ECFE;
+$secondary-dark-color: #374DC8;
+$secondary-yellow-color: #C8B237;
+$error-color: #C8374D;
+$save-color : #37C86A;
+$save-light-color : #9fe9b9;
+
+$primary-light-color: #a3abd8;
+$primary-more-light-color: #d9dcf3;
+
+html {
+  background-color: $primary-light-color;
+  width: 100%;
+  min-height: 100%;
+
+}
+body{
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+}
+
+.form--body--info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+  div{
+    color: $secondary-dark-color;
+    font-weight: 600;
+  }
+}
+
+h1{
+  color: $secondary-dark-color;
+  border: $secondary-dark-color;
+}
+
+label{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.userslist{
+  background-color: $secondary-light-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 20px 0;
+  gap: 17px;
+  overflow-x: hidden;
+    .tittle{
+    margin: 0;
+  }
+
+}
+.usersList{
+  display: flex;
+  flex-direction: column;
+  width: 316px;
+  text-align: center;
+  padding: 10px;
+  height: 600px;
+  overflow: hidden;
+}
+.users--header{
+  display: flex;
+  background-color: $secondary-light-color;
+  padding: 20px 0 10px 0;
+  justify-content: center;
+}
+.user--header--wrapper{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.userLogger--menu{
+ display: none;
+}
+
+.userLogger{
+  background-color: $secondary-dark-color;
+  border-radius: 40px;
+  padding: 9px;
+  height: 40px;
+  width: 40px;
+  box-shadow: inset rgba(50, 50, 93, 0.25) 2px 2px 5px -2px, $secondary-dark-color 0px 3px 2px -3px;  
+
+  span{
+    color: $secondary-yellow-color;
+    font-weight: 600;
+  }
+}
+.form{
+  padding: 20px;
+}
+
+.user--data{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+  .logOut{
+    font-size: 12px;
+  }
+}
+
+.form--body{
+  width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+  gap: 40px;
+}
+
+.button--save{
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  width: 80%;
+  border: none;
+  color:  $secondary-light-color;
+  background-color: $save-color;
+  justify-content: center;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 400ms cubic-bezier(0.2, 0, 0, 0.8);
+  margin-bottom: 37px;
+  a{
+    text-decoration: none;
+    width: 100%;
+    color: $secondary-dark-color;
+  }
+  
+}
+
+.return{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  svg{
+    width: 20px;
+    height: 20px;
+    color: $secondary-dark-color;
+  }
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  svg{
+    width: 20px;
+    height: 20px;
+    color: $secondary-dark-color;
+  }
+}
+
+.button--save:hover{
+  background-color: $secondary-light-color;
+  color: $save-color;
+  outline: 2px solid $save-light-color;
+  font-weight: bolder;
+  transition: all 400ms cubic-bezier(0.2, 0, 0, 0.8);
+}
+
+.button--name{
+  transition: all 500ms cubic-bezier(0.2, 0, 0, 0.8);
+  font-weight: bolder;
+}
+.button--name:hover{
+  color: $error-color;
+  
+  font-weight: bolder;
+  transition: all 500ms cubic-bezier(0.2, 0, 0, 0.8);
+
+}
+.Users{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 30px;
+  overflow: scroll;
+  background-color: $primary-more-light-color;
+  overflow-x: hidden;
+  padding: 20px 0 20px 0;
+  box-shadow: inset rgba(50, 50, 93, 0.25) 2px 2px 5px -2px, $secondary-dark-color 0px 3px 2px -3px;  
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $primary-more-light-color; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $secondary-yellow-color; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary-dark-color; 
+}
+button{
+  border: none;
+}
