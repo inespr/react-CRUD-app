@@ -22,6 +22,17 @@ body{
   justify-content: center;
 }
 
+.form--body--info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+  div{
+    color: $secondary-dark-color;
+    font-weight: 600;
+  }
+}
+
 h1{
   color: $secondary-dark-color;
   border: $secondary-dark-color;
